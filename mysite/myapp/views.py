@@ -6,10 +6,10 @@ from .models import Food, Consume
 def index(request):
 
     if request.method == "POST":
-        food_consumed = request.POST['food_consumed']
-        consume = Food.objects.get(name=food_consumed)
+        food_consume = request.POST['food_consumed']
+        consume = Food.objects.get(name=food_consume)
         user = request.user
-        consume = Consume(user=user, food_consumed=consume)
+        consume = Consume(user=user, food_consume=consume)
         consume.save()
         foods = Food.objects.all()
 
